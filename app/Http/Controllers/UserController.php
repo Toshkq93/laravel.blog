@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreUser;
+use App\Http\Requests\UserLoginRequest;
 use App\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use function React\Promise\reduce;
 
 class UserController extends Controller
 {
@@ -29,7 +28,7 @@ class UserController extends Controller
         return view('front.user.login');
     }
 
-    public function signin(StoreUser $request){
+    public function signin(UserLoginRequest $request){
         if (Auth::attempt([
             'email' => $request->email,
             'password' => $request->password,

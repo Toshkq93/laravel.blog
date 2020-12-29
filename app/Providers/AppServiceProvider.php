@@ -28,14 +28,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         view()->composer('front.menu.menu', function ($view){
-            if (Cache::has('categories')){
-                $categories = Cache::get('categories');
-            }else{
-                $categories = Category::query()->where('parent_id')
-                    ->with('children')
-                    ->get();
-                Cache::put('categories', $categories, 10);
-            }
+            $categories = Cache::remember('categories', 3600, function (){
+               return Category::where('parent_id')->with('children')->get();
+            });
             $view->with('categories', $categories);
         });
         view()->composer('front.layouts.sidebar', function ($view){

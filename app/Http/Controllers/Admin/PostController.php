@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Category;
 use App\Http\Controllers\Controller;
+use App\Http\Helpers\PostHelper;
 use App\Http\Requests\StorePost;
 use App\Post;
 
@@ -23,7 +24,7 @@ class PostController extends Controller
     public function store(StorePost $request)
     {
         $data = $request->all();
-        $data['image'] = Post::uploadImage($request);
+        $data['image'] = PostHelper::uploadImage($request);
         Post::query()->create($data);
 
         return redirect()->route('posts.index')->with('success', 'Статья успешно добавлена');
@@ -44,7 +45,7 @@ class PostController extends Controller
         $post = Post::query()->find($id);
         $data = $request->all();
 
-        if ($file = Post::uploadImage($request, $post->image)){
+        if ($file = PostHelper::uploadImage($request, $post->image)){
             $data['image'] = $file;
         }
 
