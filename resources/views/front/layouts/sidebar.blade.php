@@ -2,8 +2,8 @@
         <h3>New posts</h3>
             @foreach($popular_posts as $post)
         <div class="post-grid">
-            <a href="{{ route('post.article', ['id' => $post->id]) }}"><img src="{{ $post->getImage() }}" alt=""/></a>
-            <p class="popularPost">{{ $post->description }}<a href="{{ route('post.article', ['id' => $post->id]) }}">[...]</a></p>
+            <a href="{{ route('post.article', ['id' => $post->id]) }}"><img src="{{ \App\Http\Helpers\PostHelper::getImage($post->image) }}" alt="" /></a>
+            <p class="popularPost">{{ $post->title }}<a href="{{ route('post.article', ['id' => $post->id]) }}"></a></p>
             <div class="clear"> </div>
         </div>
             @endforeach
@@ -21,8 +21,8 @@
             <div class="section group">
                 @foreach($latest_images as $image)
                 <div class="grid_1_of_4 images_1_of_4">
-                    <a href="#" class="b-link-stripe b-animate-go  swipebox"  title="Image Title">
-                        <img src="{{'uploads/' . $image}}" alt="" class="img-responsive">
+                    <a href="#" class="b-link-stripe b-animate-go swipebox"  title="Image Title">
+                        <img src="{{asset($image)}}" alt="" class="img-responsive">
                     </a>
                 </div>
                 @endforeach

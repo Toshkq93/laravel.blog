@@ -20,6 +20,7 @@ mix.scripts([
     'resources/assets/js/jquery.swipebox.min.js',
     'resources/assets/js/jquery-1.11.1.min.js',
     'resources/assets/js/modernizr.custom.69142.js',
+    'resources/assets/js/typeahead.bundle.js',
 ], 'public/fronts/js/front.js')
 
 mix.copyDirectory('resources/assets/images', 'public/fronts/images');

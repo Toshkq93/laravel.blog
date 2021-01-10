@@ -5,7 +5,7 @@
     <div class="content">
         <div class="box1">
             <h3>{{ $post->title }}</h3>
-            <span>{{ $post->getPostDate() }}<span class="comments">8 Comments</span></span>
+            <span>{{ \App\Http\Helpers\PostHelper::getPostDate($post->created_at) }}<span class="comments">8 Comments</span></span>
             <div class="blog-img">
                 <div class="view-back">
                     <span class="views" title="views">(566)</span>
@@ -13,10 +13,10 @@
                     <span class="link" title="link">(24)</span>
                     <a href="#"> </a>
                 </div>
-                <img src="{{ $post->getImage() }}" style="width: 100%">
+                <img src="{{ \App\Http\Helpers\PostHelper::getImage($post->image) }}" style="width: 100%; height: 100%">
             </div>
             <div class="blog-data">
-                <p style="text-align: justify">{{ $post->content }}</p>
+                <p style="text-align: justify">{!! $post->content !!}</p>
             </div>
             <div class="clear"></div>
         </div>

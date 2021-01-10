@@ -7,7 +7,7 @@
         @foreach($posts as $post)
         <div class="box1">
             <h3><a href="{{ route('post.article', ['id' => $post->id]) }}">{{ $post->title }}</a></h3>
-            <span>{{ $post->getPostDate() }}<span class="comments">Category: {{ $post->category->title }}</span></span>
+            <span>{{ \App\Http\Helpers\PostHelper::getPostDate($post->created_at) }}<span class="comments">Category: {{ $post->category->title }}</span></span>
             <div class="view">
                 <div class="view-back">
                     <span class="views" title="views">(566)</span>
@@ -15,7 +15,7 @@
                     <span class="link" title="link">(24)</span>
                     <a href="{{ route('post.article', ['id' => $post->id]) }}"> </a>
                 </div>
-                <a href="{{ route('post.article', ['id' => $post->id]) }}"><img src="{{ $post->getImage() }}"></a>
+                <a href="{{ route('post.article', ['id' => $post->id]) }}"><img src="{{ \App\Http\Helpers\PostHelper::getImage($post->image) }}"></a>
             </div>
             <div class="data">
                 <p style="text-align: justify">{{ $post->description }}</p>

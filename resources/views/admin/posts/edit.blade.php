@@ -54,7 +54,7 @@
                         </div>
                     </div>
                 </div>
-                <div><img src="{{ $post->getImage() }}" alt="" class="img-thumbnail mt-2" width="200"></div>
+                <div><img src="{{ \App\Http\Helpers\PostHelper::getImage($post->image) }}" alt="" class="img-thumbnail mt-2" width="200"></div>
             </div>
             <!-- /.card-body -->
 

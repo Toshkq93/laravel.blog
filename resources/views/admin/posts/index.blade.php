@@ -24,7 +24,7 @@
             <tr>
                 <td>{{ $post->id }}</td>
                 <td>{{ $post->title }}</td>
-                <td>{{ $post->content }}</td>
+                <td style="max-height: 20px">{{ $post->content }}</td>
                 <td>{{ $post->category->title }}</td>
                 <td>{{ $post->description }}</td>
                 <td>{{ $post->created_at }}</td>

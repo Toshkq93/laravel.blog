@@ -11,6 +11,7 @@ Route::get('/post/{id}', 'PostController@show')->name('post.article');
 Route::get('/category/{slug}', 'CategoryController@index')->name('category.show');
 
 Route::get('/search', 'SearchController@index')->name('search');
+Route::get('/search/autocomplite', 'SearchController@autocomplite');
 
 Route::get('logout', 'UserController@logout')->name('logout')->middleware('auth');
 

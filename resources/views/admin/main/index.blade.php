@@ -68,6 +68,15 @@
             <!-- ./col -->
         </div>
     </div><!-- /.container-fluid -->
+
+    <div class="card-weather" style="background: #0b5ed7">
+        {{ $data->name }}
+        <span class="date">{{ date('d.m.Y') }}</span>
+        <div>Влажность: {{$data->main->humidity}} %</div>
+        <div>Ветер: {{$data->wind->speed}} км/ч</div>
+        <div><img src="http://openweathermap.org/img/wn/{{ $data->weather[0]->icon }}.png" alt=""></div>
+        <span class="temperature">Температура: {{$data->main->temp_min}}</span>
+    </div>
 </section>
 <!-- /.content -->
 @endsection
